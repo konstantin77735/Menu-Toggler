@@ -1,0 +1,145 @@
+.nav {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    max-height: 15%;
+    margin: auto;
+    position: relative;
+    top: 16px;
+    color: #fff;
+    display: grid;
+    align-items: center;
+    grid-template-areas: 'logo mobile-menu burger';
+    grid-template-columns: 1fr 3fr 1fr;
+
+   
+
+
+
+    .menu_show {
+        height: 140px;
+        opacity: 1;
+    }
+
+    &__item-rounded {
+        padding: $paddingOfWhiteNavElems;
+        max-height: $heightOfWhiteNavElems;
+        border-radius: 200px;
+    }
+
+
+    .img-wrapper {
+        display: block;
+        max-width: 21px;
+
+        &__img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+    .logo {
+        grid-area: logo;
+        max-width: 320px;
+        font-size: 1.5rem;
+        display: grid;
+        grid-template-columns: minmax(71px, 63px) 14px minmax(90px, 194px);
+        grid-template-areas:
+            'logo-img . title'
+            'logo-img . desc';
+
+        &__img {
+            grid-area: logo-img;
+            height: 100%;
+        }
+
+        &__title {
+            grid-area: title;
+            font-family: 'Gilroy-Medium';
+            font-size: 3rem;
+        }
+
+        &__description {
+            grid-area: desc;
+            font-family: 'Gilroy-Light';
+            font-size: 1rem;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+
+
+    &__item {
+        font-size: 1.7rem;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all .2s linear;
+
+        &:hover:not(.number) {
+            color: #ddd;
+        }
+
+        &_white {
+            background: #fff;
+
+            &:hover {
+                box-shadow: 0 0 12px #fff;
+            }
+        }
+    }
+}
+
+.nav-footer {
+    position: relative;
+    top: -10px;
+    color: #777;
+
+    .logo {
+        &:hover {
+            color: #777;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav {
+        max-width: 98%;
+
+        .logo {
+            grid-template-columns: minmax(58px, 66px) 0 minmax(99px, 140px);
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .nav {
+        .logo {
+            grid-template-columns: minmax(30px, 41px) 5px minmax(86px, 110px);
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .nav {
+        grid-template-areas: 'logo burger';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 35px;
+
+        &__item {
+            font-size: 2.3rem;
+        }
+
+        
+
+        .logo {
+            width: 100%;
+        }
+
+    }
+}

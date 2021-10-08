@@ -1,0 +1,302 @@
+@import "basic/libs";
+
+@import "basic/vars";
+@import "basic/fonts";
+@import "basic/media";
+
+@import "burger";
+@import "mobile-menu";
+@import "nav";
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-size: $fontSize;
+    background: #E5E5E5;
+}
+
+.btn {
+    max-width: 175px;
+    max-height: 108px;
+    background: $purple;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+    z-index: 1;
+
+    &:hover {
+        box-shadow: 0 0 12px $purple;
+    }
+
+    &_find {
+        width: 133px;
+        height: 100%;
+        left: 967px;
+        top: 78px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: center;
+        transition: all .3s linear;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__img {
+            height: 15px;
+            margin-right: 9px;
+        }
+    }
+
+    &_upload-resume {
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid #EFEFFC;
+        border-radius: 25px;
+        height: 30px;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            box-shadow: 0 0 12px #aaa;
+        }
+    }
+}
+
+.title {
+    margin-top: 120px;
+    font-size: 3.5rem;
+    font-family: 'Montserrat-light';
+}
+
+.text {
+    &_montserrat-extra-light {
+        font-family: 'Montserrat-Extra-Light';
+    }
+
+    &_montserrat-light {
+        font-family: 'Montserrat-Extra-Light';
+    }
+
+    &_montserrat-medium {
+        font-family: 'Montserrat-Medium';
+    }
+
+    &_montserrat-regular {
+        font-family: 'Montserrat-Regular';
+    }
+
+    &_montserrat-bold {
+        font-family: 'Montserrat-Bold';
+    }
+
+    &_montserrat-extra-bold {
+        font-family: 'Montserrat-Extra-Bold';
+    }
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 256px));
+    grid-row-gap: 50px;
+    margin: 85px auto 0 auto;
+    max-width: 77%;
+
+    &__item {
+        background: #fff;
+        max-width: 80%;
+        border-radius: 10px;
+        position: relative;
+        transition: box-shadow .2s linear;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 6.92082px 30.2786px rgba(172, 169, 200, 1);
+        }
+
+        &_tall {
+            font-family: 'Montserrat-Extra-Light';
+            border: 2px solid rgba(0, 0, 0, 0.18);
+            min-height: 125px;
+
+            &:hover {
+                box-shadow: 0px 6.92082px 30.2786px rgba(0, 0, 16, 0.3);
+            }
+        }
+
+
+    }
+
+    &__img {
+
+
+        background: #5243FF;
+        border-radius: 80%;
+        height: $watchHeight;
+        width: $watchHeight;
+        padding: 7px;
+
+        position: absolute;
+        top: $minWatchHeight;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        &_hex {
+            border-radius: 0;
+            background: none;
+            padding: 7px;
+            height: 50px;
+            width: 50px;
+            top: -39px;
+        }
+    }
+
+    &__title {
+
+        font-size: 2rem;
+    }
+
+    &__desc {
+        font-size: 1.5rem;
+    }
+}
+
+.etc {
+    display: block;
+    font-family: 'Montserrat-Medium';
+    font-size: 2.35rem;
+    position: relative;
+    margin-top: 70px;
+}
+
+.color_purple {
+    color: $purple;
+}
+
+.color_grey {
+    color: #777;
+}
+
+
+.purple-line {
+    max-width: 177px;
+    position: absolute;
+    top: -22px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.select {
+    grid-area: search;
+    width: 100%;
+    height: 44px;
+    left: 550px;
+    top: 74px;
+    padding-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    justify-self: end;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+.hint {
+    font-family: 'Montserrat-Regular';
+    position: absolute;
+    top: auto;
+    bottom: 33px;
+    right: -233px;
+    background: #fff;
+    border-radius: 12px;
+    max-height: 32px;
+    width: 58%;
+    min-width: 215px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .5s linear 0s, height 0s linear .5s;
+
+    &_show {
+        height: auto;
+        opacity: 1;
+        transition: opacity .5s linear .5s, height 0s linear 0s;
+    }
+
+    &__img {
+        position: absolute;
+        left: 13px;
+        bottom: -9px;
+        max-width: 20px;
+        transform: rotateZ(-90deg) scaleY(-1);
+    }
+
+}
+
+.height_0 {
+    height: 0;
+}
+
+@media screen and (max-width: 1300px) {
+
+    html,
+    body {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    br {
+        display: none;
+    }
+
+    .title {
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    html,
+    body {
+        font-size: 5px;
+    }
+}
+
+/* 
+.items{
+    @include row-flex();/*создаст строку флексами
+    @include row-float();/*создаст строку флотами
+    @include md(justify-content, center); /*выровняй по центру начиная с 992px
+
+    .item{
+        @include col();станьте столбцами
+        @include size(3);/*станьте столбцами занимающими 3 колонок везде
+        @include size-lg(3);/*станьте столбцами занимающими 3 колонок начиная с 1200px
+        @include size-md(4);/*станьте столбцами занимающими 4 колонок начиная со 992px
+        @include size-sm(6);/*станьте столбцами занимающими 6 колонок начиная со 720pxpx
+        @include size-xs(12);/*станьте столбацим занимающими 12 колонок начиная с 576px
+    }
+}
+
+*/

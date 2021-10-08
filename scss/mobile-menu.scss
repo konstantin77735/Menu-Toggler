@@ -1,0 +1,96 @@
+ .mobile-menu {
+        display: grid;
+        grid-template-areas: '. companies . applicants . vacancies. links';
+        grid-template-columns: minmax(15px, 150px) 86px minmax(0px, 60px) 100px minmax(0px, 60px) 77px minmax(0px, 355px) minmax(190px, 250px);
+        justify-self: end;
+        grid-area: mobile-menu;
+
+
+        .links {
+            grid-area: links;
+            display: grid;
+            grid-template-areas: 'inst mail number';
+            grid-template-columns: auto auto auto;
+
+            .inst {
+                grid-area: inst;
+            }
+
+            .mail {
+                grid-area: mail;
+            }
+
+            .number {
+                color: #000;
+                font-size: 1.55rem;
+                grid-area: number;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+        }
+
+        .companies {
+            grid-area: companies;
+        }
+
+        .applicants {
+            grid-area: applicants;
+        }
+
+        .vacancies {
+            grid-area: vacancies;
+        }
+
+
+    }
+
+
+
+@media screen and (max-width: 650px) {
+ 
+    .mobile-menu {
+            position: absolute;
+            top: 50px;
+            right: 5px;
+
+
+            grid-template-areas:
+                'companies'
+                '.'
+                'applicants'
+                '.'
+                'vacancies'
+                '.'
+                'links';
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 10px auto 10px auto 10px;
+            align-self: self-start;
+
+
+            .links {
+                grid-template-areas:
+                    'inst'
+                    '.'
+                    'mail'
+                    '.'
+                    'number';
+                grid-template-rows: auto 10px auto 10px auto;
+
+
+                .inst,
+                .mail {
+                    max-width: 15px;
+                    max-height: 15px;
+                }
+
+                .number {
+                    height: 32px;
+                    font-size: 1.6rem;
+                }
+            }
+
+        }
+    
+}
