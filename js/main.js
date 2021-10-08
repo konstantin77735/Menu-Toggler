@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         transitionTime: '2.5s',
         transitionType: 'linear',
         menuDisplay: 'grid',
-        type: 'slide', //appear by default
+        type: 'slide', //appear OR slide, appear by default
         slideBegin: 'translate(200%, 0px)', // Обязательно добавлять px к любому числу
         slideEnd: 'translate(0px, 0px)', // Обязательно добавлять px к любому числу
     });

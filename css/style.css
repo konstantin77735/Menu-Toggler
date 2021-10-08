@@ -118,18 +118,24 @@
 }
 
 .mobile-menu {
-  display: grid;
-  grid-template-areas: '. companies . applicants . vacancies. links';
-  grid-template-columns: minmax(15px, 150px) 86px minmax(0px, 60px) 100px minmax(0px, 60px) 77px minmax(0px, 355px) minmax(190px, 250px);
+  display: flex;
+  flex-direction: column;
   justify-self: end;
   grid-area: mobile-menu;
 }
 
+.mobile-menu__item {
+  font-size: 2.3rem;
+  color: #fff;
+  text-decoration: none;
+  transition: all .2s linear;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 .mobile-menu .links {
-  grid-area: links;
-  display: grid;
-  grid-template-areas: 'inst mail number';
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-menu .links .inst {
@@ -150,18 +156,6 @@
   height: 100%;
 }
 
-.mobile-menu .companies {
-  grid-area: companies;
-}
-
-.mobile-menu .applicants {
-  grid-area: applicants;
-}
-
-.mobile-menu .vacancies {
-  grid-area: vacancies;
-}
-
 .nav {
   position: relative;
   z-index: 1;
@@ -172,9 +166,9 @@
   top: 16px;
   color: #fff;
   display: grid;
-  align-items: center;
+  align-items: start;
   grid-template-areas: 'logo mobile-menu burger';
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 20fr 1fr;
 }
 
 .nav .menu_show {
@@ -256,6 +250,11 @@
 
 .nav-footer .logo:hover {
   color: #777;
+}
+
+.mobile-menu {
+  position: relative;
+  top: 100px;
 }
 
 html,
@@ -583,6 +582,10 @@ body {
   .nav .logo {
     grid-template-columns: minmax(58px, 66px) 0 minmax(99px, 140px);
   }
+
+  .mobile-menu {
+    top: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -607,15 +610,7 @@ body {
     position: absolute;
     top: 50px;
     right: 5px;
-    grid-template-areas: 'companies' '.' 'applicants' '.' 'vacancies' '.' 'links';
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 10px auto 10px auto 10px;
     align-self: self-start;
-  }
-
-  .mobile-menu .links {
-    grid-template-areas: 'inst' '.' 'mail' '.' 'number';
-    grid-template-rows: auto 10px auto 10px auto;
   }
 
   .mobile-menu .links .inst,
