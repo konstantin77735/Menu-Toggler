@@ -23,12 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         init() {
 
             this.menuTrigger.addEventListener('click', this.toggle.bind(this));
-            this.menuTrigger.addEventListener('touchstart', this.toggle.bind(this));
             
             if (this.type == 'appear') {
                 // add first styles, makes elem invisible and untouchuble
                 //this.menu.style.transition = 'none';
-                this.menu.style.height = '0';
+   
                 this.menu.style.opacity = 0;
                 this.menu.style.display = 'none';
 
@@ -40,11 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 
 
                 this.menu.addEventListener('transitionend', (e) => {
+                    
+                    alert('transitionEnd')
+                    
                     if (e.target == this.menu) {
                         this.isChanging = false;
 
                         if (this.state == 'hide') {
-                            this.menu.style.display = 'none'
+                          
+                                this.menu.style.display = 'none'
+                                
+  
                         }
                     }
 
@@ -52,11 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             if(this.type == 'slide'){
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflowX = 'hidden';
                 
                 
-                this.setVendorStyleProperty(this.menu, 'transition', `transform ${this.transitionTime} ${this.transitionType}`);
+                
                 this.setVendorStyleProperty(this.menu, 'transform', this.slideBegin);
+                
+                setTimeout(()=>{
+                    this.setVendorStyleProperty(this.menu, 'transition', `transform ${this.transitionTime} ${this.transitionType}`);
+                    
+                },1);
+                
             }
 
         }
@@ -84,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     this.state = 'hide';
-                    this.menu.style.height = '0';
+
                     this.menu.style.opacity = '0';
                     this.isChanging = true;
                     return;
@@ -114,19 +125,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 
                 if(this.menu.style.transform == this.slideBegin){
+                    
                     if (this.menuTrigger.classList.contains('burger')) {
                         this.menuTrigger.classList.add('burger_close');
                     }
                     
                     this.setVendorStyleProperty(this.menu, 'transform', this.slideEnd);
+                    this.menu.style.transform = this.slideEnd;
                     
+                    console.log(this.menu);
+                    console.log(this.menu.style.transform);
+
                 }
                 else{
                     if (this.menuTrigger.classList.contains('burger')) {
                         this.menuTrigger.classList.remove('burger_close');
                     }
                     
-                     this.setVendorStyleProperty(this.menu, 'transform', this.slideBegin);
+                    this.setVendorStyleProperty(this.menu, 'transform', this.slideBegin);
+                    this.menu.style.transform = this.slideBegin;
+                    
+                    console.log(this.menu);
+                    console.log(this.menu.style.transform);
                 }
                 
             }
@@ -136,12 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggler1 = new MenuToggler({
         menuTriggerSelector: '.burger', //if burger, to onClick add class burger_close
         menuSelector: '.mobile-menu',
-        transitionTime: '2.5s',
+        transitionTime: '7s',
         transitionType: 'linear',
-        menuDisplay: 'grid',
+        menuDisplay: 'flex',
         type: 'slide', //appear OR slide, appear by default
-        slideBegin: 'translate(200%, 0px)', // Обязательно добавлять px к любому числу
-        slideEnd: 'translate(0px, 0px)', // Обязательно добавлять px к любому числу
+        slideBegin: 'translate(250px, 20px)', // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
+        slideEnd: 'translate(0px, 20px)',  // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
     });
 
 });
